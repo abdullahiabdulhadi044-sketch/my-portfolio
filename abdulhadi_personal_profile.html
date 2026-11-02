@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101b19">
+  <meta name="description" content="The personal portfolio of Abdulhadi Abdullahi Abubaka, Software Engineering student and web developer.">
+  <title>Abdulhadi Abubaka — Software Engineering Student</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #172522; --muted: #65736e; --paper: #f6f7f2; --white: #fff;
+      --green: #b8ed75; --deep: #10201c; --line: #e2e8df;
+      --radius: 22px; --shadow: 0 18px 50px rgba(19, 42, 33, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: "DM Sans", sans-serif; line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 44px)); margin: auto; }
+    .topbar { padding: 22px 0; }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .brand { font: 800 1.05rem "Manrope", sans-serif; letter-spacing:-.05em; }
+    .brand span { color:#668d42; }
+    .navlinks { display:flex; align-items:center; gap:28px; color:#53635d; font-size:.92rem; }
+    .navlinks a:hover { color:#315b2a; }
+    .nav-cta { border:1px solid #cbd6c8; padding:10px 17px; border-radius:999px; color:var(--ink); font-weight:600; }
+    .hero { padding:70px 0 84px; display:grid; grid-template-columns:1.2fr .8fr; align-items:center; gap:56px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; color:#55763c; background:#eaf3df; border:1px solid #dce9ce; border-radius:999px; padding:7px 13px; font-size:.82rem; font-weight:700; }
+    .dot { width:8px; height:8px; background:#75a94c; border-radius:50%; box-shadow:0 0 0 4px #d8eac9; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { font:800 clamp(2.8rem, 6vw, 5.2rem)/1.06 "Manrope",sans-serif; letter-spacing:-.075em; margin:24px 0 22px; max-width:720px; }
+    h1 .accent { color:#638b43; }
+    .intro { color:#63716b; font-size:1.1rem; max-width:590px; line-height:1.85; }
+    .actions { display:flex; flex-wrap:wrap; gap:13px; margin-top:30px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:13px 20px; border-radius:999px; font-weight:700; transition:transform .2s, box-shadow .2s; }
+    .btn:hover { transform:translateY(-2px); }
+    .primary { background:var(--deep); color:white; box-shadow:0 10px 25px #10201c22; }
+    .secondary { border:1px solid #d3ddd0; background:#fff9; }
+    .profile-card { position:relative; background:var(--deep); color:white; border-radius:30px; min-height:390px; padding:34px; overflow:hidden; box-shadow:var(--shadow); }
+    .profile-card:before,.profile-card:after { content:""; position:absolute; border:1px solid #ffffff20; border-radius:50%; width:330px;height:330px; right:-100px;top:-105px; }
+    .profile-card:after { width:230px;height:230px;right:-48px;top:-55px; }
+    .card-top { position:relative; z-index:1; display:flex; justify-content:space-between; align-items:center; color:#c5d1c9; font-size:.82rem; }
+    .monogram { width:100px;height:100px; border-radius:28px; background:var(--green); color:#1b3022; display:grid; place-items:center; font:800 2.2rem "Manrope"; letter-spacing:-.08em; margin:66px 0 25px; transform:rotate(-5deg); }
+    .profile-card h2 { position:relative; z-index:1; font:700 1.5rem "Manrope"; margin-bottom:7px; letter-spacing:-.04em; }
+    .profile-card p { position:relative; z-index:1; color:#c3d0c7; margin:0; font-size:.95rem; }
+    .card-foot { position:absolute; bottom:28px; right:30px; color:#a7c18e; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; }
+    section { padding:76px 0; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:32px; }
+    .kicker { color:#6a914c; text-transform:uppercase; letter-spacing:.14em; font-size:.75rem; font-weight:800; margin-bottom:10px; }
+    h2.section-title { font:800 clamp(2rem,4vw,3rem)/1.15 "Manrope"; letter-spacing:-.06em; margin:0; }
+    .section-note { color:var(--muted); max-width:410px; margin:0; }
+    .about-grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:24px; }
+    .panel { background:white; border:1px solid var(--line); border-radius:var(--radius); padding:30px; }
+    .about-copy { font-size:1.04rem; color:#5f6e67; line-height:1.9; }
+    .facts { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .fact { background:#f4f7f0; border-radius:16px; padding:18px; }
+    .fact small { display:block; color:#718077; font-size:.77rem; margin-bottom:5px; }
+    .fact strong { font:700 1rem "Manrope"; }
+    .skills { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .skill { background:white; border:1px solid var(--line); border-radius:18px; padding:23px; }
+    .skill-icon { width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#edf4e5;color:#547c36;font-weight:800;margin-bottom:18px; }
+    .skill h3 { font:700 1.05rem "Manrope"; margin-bottom:7px; }
+    .skill p { color:var(--muted); font-size:.9rem; margin:0; }
+    .projects { background:#edf1e9; }
+    .project-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+    .project { background:white; border:1px solid #e0e7dc; border-radius:20px; padding:24px; display:flex; flex-direction:column; min-height:260px; }
+    .project-no { color:#7a9c5c; font:800 .8rem "Manrope"; letter-spacing:.12em; }
+    .project h3 { font:700 1.25rem "Manrope"; letter-spacing:-.04em; margin:22px 0 9px; }
+    .project p { color:var(--muted); font-size:.92rem; flex:1; }
+    .tags { display:flex; flex-wrap:wrap; gap:7px; }
+    .tag { background:#f0f4ec; color:#557144; border-radius:999px; padding:5px 10px; font-size:.74rem; font-weight:700; }
+    .project-hint { color:#738078; font-size:.82rem; margin-top:20px; }
+    .contact { background:var(--deep); color:white; border-radius:30px; padding:48px; display:flex; align-items:center; justify-content:space-between; gap:30px; }
+    .contact .kicker { color:var(--green); }
+    .contact h2 { font:800 clamp(2rem,4vw,3.2rem)/1.1 "Manrope"; letter-spacing:-.06em; margin-bottom:12px; }
+    .contact p { color:#c0cdc4; margin:0; max-width:500px; }
+    .contact .btn { background:var(--green); color:#183020; white-space:nowrap; }
+    footer { padding:28px 0 38px; color:#7b8981; font-size:.85rem; }
+    .footer-inner { display:flex; justify-content:space-between; gap:15px; flex-wrap:wrap; }
+    @media (max-width:800px) {
+      .hero { grid-template-columns:1fr; padding-top:45px; gap:35px; }
+      .profile-card { min-height:350px; }
+      .about-grid { grid-template-columns:1fr; }
+      .skills,.project-grid { grid-template-columns:1fr 1fr; }
+      .section-head { align-items:start; flex-direction:column; }
+    }
+    @media (max-width:560px) {
+      .wrap { width:min(100% - 30px,1120px); }
+      .navlinks { gap:13px; font-size:.8rem; }
+      .navlinks a:nth-child(2) { display:none; }
+      .nav-cta { padding:8px 12px; }
+      .hero { padding:38px 0 55px; }
+      section { padding:58px 0; }
+      .skills,.project-grid { grid-template-columns:1fr; }
+      .facts { grid-template-columns:1fr 1fr; }
+      .panel { padding:22px; }
+      .contact { padding:30px 24px; align-items:flex-start; flex-direction:column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#home">AA<span>.</span></a>
+      <nav class="navlinks" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+        <a class="nav-cta" href="#contact">Let's connect ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap hero" id="home">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Software Engineering Student</div>
+        <h1>Curious mind.<br><span class="accent">Creative builder.</span></h1>
+        <p class="intro">Hi, I'm <strong>Abdulhadi Abdullahi Abubaka</strong> — a 19-year-old first-semester Software Engineering student at Politeknik Indonusa Surakarta. I'm learning how thoughtful design and clean code can turn ideas into useful digital experiences.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore my work <span>↗</span></a>
+          <a class="btn secondary" href="#about">A little about me</a>
+        </div>
+      </div>
+      <aside class="profile-card" aria-label="Profile introduction">
+        <div class="card-top"><span>PERSONAL PORTFOLIO</span><span>2026</span></div>
+        <div class="monogram">AA</div>
+        <h2>Abdulhadi Abubaka</h2>
+        <p>Learning, building, and improving — one project at a time.</p>
+        <div class="card-foot">Student · Developer · Creator</div>
+      </aside>
+    </div>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">01 / About me</div><h2 class="section-title">A little about<br>who I am.</h2></div>
+          <p class="section-note">I enjoy exploring technology, learning new skills, and creating things that make the web feel more useful and welcoming.</p>
+        </div>
+        <div class="about-grid">
+          <div class="panel">
+            <p class="about-copy">I'm at the beginning of my Software Engineering journey, and I'm excited by how much there is to discover. I have an interest in front-end web development, where creativity meets problem-solving. My goal is to keep growing as a developer and build digital products that people enjoy using.</p>
+          </div>
+          <div class="panel facts">
+            <div class="fact"><small>Age</small><strong>19 years old</strong></div>
+            <div class="fact"><small>Study level</small><strong>First semester</strong></div>
+            <div class="fact"><small>Institution</small><strong>Politeknik Indonusa</strong></div>
+            <div class="fact"><small>Location</small><strong>Surakarta, Indonesia</strong></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">02 / What I work with</div><h2 class="section-title">Skills I'm building.</h2></div>
+          <p class="section-note">My current focus is front-end development and creating websites that look good, work smoothly, and feel intuitive.</p>
+        </div>
+        <div class="skills">
+          <article class="skill"><div class="skill-icon">H5</div><h3>HTML5</h3><p>Building clear, semantic page structures and accessible content.</p></article>
+          <article class="skill"><div class="skill-icon">C3</div><h3>CSS3</h3><p>Creating responsive layouts, polished visual details, and consistent styles.</p></article>
+          <article class="skill"><div class="skill-icon">JS</div><h3>JavaScript</h3><p>Adding interaction and useful behaviour to websites.</p></article>
+          <article class="skill"><div class="skill-icon">UI</div><h3>Responsive design</h3><p>Making pages adapt naturally to phones, tablets, and desktops.</p></article>
+          <article class="skill"><div class="skill-icon">✦</div><h3>Creative problem-solving</h3><p>Breaking ideas into manageable steps and finding practical solutions.</p></article>
+          <article class="skill"><div class="skill-icon">↗</div><h3>Continuous learning</h3><p>Practising, experimenting, and improving with every new challenge.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="kicker">03 / Selected work</div><h2 class="section-title">Projects & ideas.</h2></div>
+          <p class="section-note">A starting collection of the kinds of web experiences I enjoy creating. Replace these examples with links and screenshots of your completed projects.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project"><span class="project-no">PROJECT 01</span><h3>Personal Portfolio</h3><p>A clean personal website to introduce a developer, highlight skills, and share selected work.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div></article>
+          <article class="project"><span class="project-no">PROJECT 02</span><h3>Responsive Landing Page</h3><p>A modern landing-page concept focused on clear messaging, strong visual hierarchy, and mobile-friendly layouts.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive UI</span></div></article>
+          <article class="project"><span class="project-no">PROJECT 03</span><h3>Interactive Web Experience</h3><p>A front-end concept using JavaScript to make everyday website interactions feel simple and engaging.</p><div class="tags"><span class="tag">JavaScript</span><span class="tag">Interaction</span><span class="tag">UI</span></div></article>
+        </div>
+        <p class="project-hint">These are portfolio examples, not claims of completed client work. Add your real project details as you build them.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact">
+          <div><div class="kicker">04 / Get in touch</div><h2>Have an idea?<br>Let's build something.</h2><p>I'm always happy to connect with fellow students, developers, and people who enjoy sharing ideas and learning together.</p></div>
+          <a class="btn" href="mailto:hello@example.com?subject=Hello%20Abdulhadi">Say hello <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap footer-inner"><span>© <span id="year"></span> Abdulhadi Abdullahi Abubaka</span><span>Designed with curiosity and care.</span></div></footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener("click", event => {
+        const target = document.querySelector(link.getAttribute("href"));
+        if (target) { event.preventDefault(); target.scrollIntoView({ behavior: "smooth" }); }
+      });
+    });
+  </script>
+</body>
+</html>
